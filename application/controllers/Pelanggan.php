@@ -56,25 +56,6 @@ class pelanggan extends CI_Controller
         $this->load->view('theme/index', $output);
     }
 
-    public function insert_submit()
-    {
-        //menangkap data input dari view
-        $nama = $this->input->post('nama');
-
-        //mengirim data ke model
-        $input = array(
-            //format : nama field/kolom table => data input dari view
-            'nama' => $nama,
-        );
-
-        //memanggil function insert pada provinsi model
-        //function insert berfungsi menyimpan/create data ke table provinsi di database
-        $data_pelanggan = $this->pelanggan_model->insert($input);
-
-        //mengembalikan halaman ke function read
-        redirect('pelanggan/read');
-    }
-
     public function update()
     {
         //menangkap id data yg dipilih dari view (parameter get)
@@ -102,12 +83,18 @@ class pelanggan extends CI_Controller
         $id = $this->uri->segment(3);
 
         //menangkap data input dari view
-        $nama = $this->input->post('nama');
+        $nama = $this->input->post('first_name');
+        $email = $this->input->post('email');
+        $address = $this->input->post('address');
+        $numberwhatsapp = $this->input->post('numberwhatsapp');
 
         //mengirim data ke model
         $input = array(
             //format : nama field/kolom table => data input dari view
-            'nama' => $nama,
+            'first_name' => $nama,
+            'email' => $email,
+            'address' => $address,
+            'numberwhatsapp' => $numberwhatsapp,
         );
 
         //memanggil function insert pada provinsi model
@@ -120,8 +107,8 @@ class pelanggan extends CI_Controller
 
     public function delete($id)
     {
-        $where = array('id' => $id);
-        $this->pelanggan_model->delete($where, 'pelanggan');
+        $where = array('uid' => $id);
+        $this->pelanggan_model->delete($where, 'user_information');
         redirect('pelanggan/read');
     }
 

@@ -10,7 +10,7 @@ class pelanggan_model extends CI_Model
 
         //sql read
         $this->db->select('*');
-        $this->db->from('pelanggan');
+        $this->db->from('user_information');
         $query = $this->db->get();
 
         //$query->result_array = mengirim data ke controller dalam bentuk semua data
@@ -23,11 +23,11 @@ class pelanggan_model extends CI_Model
 
         //sql read
         $this->db->select('*');
-        $this->db->from('pelanggan');
+        $this->db->from('user_information');
 
         //$id = id data yang dikirim dari controller (sebagai filter data yang dipilih)
         //filter data sesuai id yang dikirim dari controller
-        $this->db->where('id', $id);
+        $this->db->where('uid', $id);
 
         $query = $this->db->get();
 
@@ -35,22 +35,15 @@ class pelanggan_model extends CI_Model
         return $query->row_array();
     }
 
-    //function insert berfungsi menyimpan/create data ke table pelanggan di database
-    public function insert($input)
-    {
-        //$input = data yang dikirim dari controller
-        return $this->db->insert('pelanggan', $input);
-    }
-
     //function update berfungsi merubah data ke table pelanggan di database
     public function update($input, $id)
     {
         //$id = id data yang dikirim dari controller (sebagai filter data yang diubah)
         //filter data sesuai id yang dikirim dari controller
-        $this->db->where('id', $id);
+        $this->db->where('uid', $id);
 
         //$input = data yang dikirim dari controller
-        return $this->db->update('pelanggan', $input);
+        return $this->db->update('user_information', $input);
     }
 
     //function delete berfungsi menghapus data dari table pelanggan di database
@@ -58,6 +51,6 @@ class pelanggan_model extends CI_Model
     {
         //$id = id data yang dikirim dari controller (sebagai filter data yang dihapus)
         $this->db->where($where);
-        $this->db->delete('pelanggan');
+        $this->db->delete('user_information');
     }
 }
