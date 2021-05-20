@@ -19,7 +19,7 @@
         <tr>
             <td>No Whatsapp</td>
             <!--$data_provinsi_single['nama'] : menampilkan data provinsi yang dipilih dari database -->
-            <td><input type="text" name="numberwhatsapp" value="<?php echo $data_pelanggan_single['numberwhatsapp']; ?>" required="" class="form-control"></td>
+            <td><input type="text" name="numberwhatsapp  " value="<?php echo $data_pelanggan_single['numberwhatsapp']; ?>" required="" class="form-control"></td>
         </tr>
         <tr>
             <td>&nbsp;</td>

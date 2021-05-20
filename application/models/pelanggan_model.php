@@ -25,7 +25,7 @@ class pelanggan_model extends CI_Model
         $this->db->select('*');
         $this->db->from('user_information');
 
-        //$id = id data yang dikirim dari controller (sebagai filter data yang dipilih)
+        //$id = uid data yang dikirim dari controller (sebagai filter data yang dipilih)
         //filter data sesuai id yang dikirim dari controller
         $this->db->where('uid', $id);
 
@@ -38,7 +38,7 @@ class pelanggan_model extends CI_Model
     //function update berfungsi merubah data ke table pelanggan di database
     public function update($input, $id)
     {
-        //$id = id data yang dikirim dari controller (sebagai filter data yang diubah)
+        //$id = uid data yang dikirim dari controller (sebagai filter data yang diubah)
         //filter data sesuai id yang dikirim dari controller
         $this->db->where('uid', $id);
 
@@ -49,7 +49,7 @@ class pelanggan_model extends CI_Model
     //function delete berfungsi menghapus data dari table pelanggan di database
     public function delete($where, $table)
     {
-        //$id = id data yang dikirim dari controller (sebagai filter data yang dihapus)
+        //$id = iid data yang dikirim dari controller (sebagai filter data yang dihapus)
         $this->db->where($where);
         $this->db->delete('user_information');
     }
