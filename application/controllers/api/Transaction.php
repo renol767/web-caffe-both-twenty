@@ -22,12 +22,31 @@ class Transaction extends REST_Controller{
         }
 
         if ($transaction){
-            $this->response($transaction, REST_Controller::HTTP_OK);
+            $this->response([$transaction], REST_Controller::HTTP_OK);
         }else{
             $this->response([
                 'status' => false,
                 'message' => 'id food not found'
             ], REST_Controller::HTTP_NOT_FOUND);
+        }
+    }
+
+    public function index_post(){
+        $data = [
+            'uid' => $this->post('uid'),
+            'food_id' => $this->post('food_id'),
+            'quantity' => $this->post('quantity'),
+            'total' => $this->post('total'),
+            'status' => $this->post('status')
+        ];
+
+        if($this->transaction->createTransaction($data)> 0 ){
+            $this->response(['status' => true,'message' => 'transaction has been created'], REST_Controller::HTTP_CREATED);
+        }else{
+            $this->response([
+                'status' => true,
+                'message' => 'Failed create data'
+            ], REST_Controller::HTTP_BAD_REQUEST);
         }
     }
 }
