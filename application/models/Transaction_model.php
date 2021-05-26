@@ -3,12 +3,10 @@
 class Transaction_model extends CI_Model{
     public function getTransaction($id = null){
         if ($id == null){
-            return $this->db->from('transaction')
-            ->join('food', 'food.id=transaction.food_id')
-            ->get()->result();
+            return $this->db->from('transaction')->join('food', 'food.id=transaction.food_id')
+            ->where(['uid' => $id])->get()->result();
         }else{
-            return $this->db->from('transaction')
-            ->join('food', 'food.id=transaction.food_id')
+            return $this->db->from('transaction')->join('food', 'food.id=transaction.food_id')
             ->where(['uid' => $id])->get()->result();
         }
     }

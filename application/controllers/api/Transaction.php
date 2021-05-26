@@ -22,7 +22,7 @@ class Transaction extends REST_Controller{
         }
 
         if ($transaction){
-            $this->response([$transaction], REST_Controller::HTTP_OK);
+            $this->response($transaction, REST_Controller::HTTP_OK);
         }else{
             $this->response([
                 'status' => false,
@@ -46,7 +46,7 @@ class Transaction extends REST_Controller{
             $this->response([
                 'status' => true,
                 'message' => 'Failed create data'
-            ], REST_Controller::HTTP_BAD_REQUEST);
+            ], REST_Controller::HTTP_BAD_REQUEST); 
         }
     }
 }
