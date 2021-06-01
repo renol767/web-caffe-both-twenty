@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Bulan Mei 2021 pada 01.50
+-- Waktu pembuatan: 01 Jun 2021 pada 09.29
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -51,8 +51,8 @@ INSERT INTO `daftarmenu` (`id`, `nama_menu`, `deskripsi`, `harga`) VALUES
 CREATE TABLE `food` (
   `id` int(100) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `ingredients` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `ingredients` text NOT NULL,
   `price` varchar(255) NOT NULL,
   `rate` varchar(255) NOT NULL,
   `picturePath` varchar(255) NOT NULL
@@ -63,11 +63,35 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `name`, `description`, `ingredients`, `price`, `rate`, `picturePath`) VALUES
-(1, 'Sate Sayur Sultan', 'Sate Sayur Sultan adalah menu sate vegan paling terkenal di Bandung. Sate ini dibuat dari berbagai macam bahan bermutu tinggi. Semua bahan ditanam dengan menggunakan teknologi masa kini sehingga memiliki nutrisi yang kaya.', 'Bawang Merah, Paprika, Bawang Bombay, Timun', '150000', '4.2', 'https://i.pinimg.com/736x/06/7b/28/067b2879e5c9c42ec669bf639c3fbffc.jpg'),
-(2, 'Steak Daging Sapi Korea', 'Daging sapi Korea adalah jenis sapi paling premium di Korea. Namun, untuk menikmatinya Anda tidak perlu jauh-jauh ke Korea Selatan. Steak Sapi Korea Oppa Bandung ini sudah terkenal di seluruh Indonesia dan sudah memiliki lebih dari 2 juta cabang.', 'Daging Sapi Korea, Garam, Lada Hitam', '750000', '4.5', 'https://cdns.klimg.com/dream.co.id/resources/news/2020/04/06/133546/bikin-steak-di-rumah-pastikan-bumbunya-meresap-2004066.jpg'),
-(3, 'Mexican Chopped Salad', 'Salad ala mexico yang kaya akan serat dan vitamin. Seluruh bahan diambil dari Mexico sehingga akan memiliki cita rasa yang original.', 'Jagung, Selada, Tomat Ceri, Keju, Wortel', '105000', '3.9', 'https://i1.wp.com/varminz.com/wp-content/uploads/2019/12/mexican-chopped-salad3.jpg?fit=843%2C843&ssl=1'),
+(1, 'Krabby Patty', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book', 'Roti', '150000', '4.2', 'https://hukumbisnis.net/files/media/9d252f5e0e52820c3d8edb2a828e6155.jpg'),
+(2, 'Mi Instan ala Warteg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book', 'Mie Instan', '750000', '4.5', 'https://cdn.popbela.com/content-images/post/20200107/unspecified-1-16-d8add8fa28b7c81243157202f57a74de.jpg'),
+(3, 'Baso Jedar Jedor', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book', 'Baso', '105000', '3.9', 'https://asset.kompas.com/crops/4cqVtfcnzOkIBPrE9wysDBeyA0I=/0x288:1041x982/750x500/data/photo/2019/11/06/5dc21a0271555.jpeg'),
 (4, 'Sup Wortel Pedas', 'Sup wortel pedas yang unik ini cocok banget buat kalian-kalian yang suka pedas namun ingin tetap sehat. Rasanya yang unik akan memanjakan lidah Anda.', 'Wortel, Seledri, Kacang Tanah, Labu, Garam, Gula', '60000', '4.9', 'https://images.immediate.co.uk/production/volatile/sites/2/2016/08/25097.jpg?quality=90&resize=768,574'),
 (5, 'Korean Raw Beef Tartare', 'Daging sapi Korea cincang yang disajikan mentah dan disiram saus spesial dengan toping kuning telur dan taburan biji wijen.', 'Daging Sapi Korea, Telur, Biji Wijen', '350000', '3.4', 'https://cmxpv89733.i.lithium.com/t5/image/serverpage/image-id/478345i84598AB4FEB454CB/image-size/large?v=1.0&px=999');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `food_rate`
+--
+
+CREATE TABLE `food_rate` (
+  `id` int(11) NOT NULL,
+  `food_id` int(255) NOT NULL,
+  `rates` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `food_rate`
+--
+
+INSERT INTO `food_rate` (`id`, `food_id`, `rates`) VALUES
+(1, 1, 5),
+(2, 1, 2),
+(3, 2, 4),
+(4, 3, 5),
+(5, 3, 5),
+(6, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -92,6 +116,27 @@ CREATE TABLE `keys` (
 
 INSERT INTO `keys` (`id`, `user_id`, `key`, `level`, `ignore_limits`, `is_private_key`, `ip_addresses`, `date_created`) VALUES
 (1, 1, '0a66838fcbd880483b9af2c91c6cef9e', 1, 0, 0, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `description`, `picture`) VALUES
+(1, 'Promo Cicilan', 'Syarat & Ketentuan Voucher Cashback\r\n\r\n    Cashback akan diberikan dalam bentuk Voucher Belanja Elektronik pecahan Rp 50.000,-.\r\n    Voucher Belanja Elektronik akan dikirimkan ke alamat email konsumen mulai tanggal 4 Mei 2017 dengan masa berlaku 4-31 Mei 2017.\r\n    Voucher Belanja Elektronik nominal Rp 50.000,- tersebut dapat ditukarkan di Klikindomaret.com dengan minimal belanja Rp 100.000,-.\r\n    Penggunaan Voucher Belanja Elektronik tidak dapat digabungkan dalam 1 transaksi pembelanjaan.\r\n    Voucher Belanja Elektronik tidak dapat digunakan untuk pembelian produk gas elpiji, bright gas, air galon, rokok, susu infant (susu anak dibawah 1 tahun), dan produk produk virtual (pulsa, paket data, voucher game).\r\n    Konsumen harap melakukan input kode Voucher Belanja Elektronik di halaman metode pembayaran kolom ‘voucher belanja’.\r\n    Mohon melakukan review order sebelum melakukan input kode voucher untuk menghindari kegagalan penggunaan kode voucher belanja.\r\n    Untuk kode voucher yang hangus/tidak dapat digunakan kembali karena kesalahan dari pihak konsumen baik itu pembayaran yang terlambat dibayarkan atau adanya cancel order sepenuhnya menjadi tanggung jawab konsumen.\r\n    Klikindomaret sewaktu-waktu berhak mengubah syarat dan ketentuan ini yang akan diinformasikan pada website Klikindomaret.\r\n    Dengan melakukan transaksi di dalam program ini, maka konsumen dianggap mengerti dan menyetujui semua syarat dan ketentuan yang berlaku.\r\n    Jika ditemukan konsumen yang melakukan kecurangan, pihak Klikindomaret berhak mendiskualifikasi secara sepihak.\r\n', 'https://i.pinimg.com/originals/3e/7c/71/3e7c711aa57eb0df282cb873bb3958e7.jpg'),
+(2, 'UX Reseachers', 'Syarat & Ketentuan Cashback Rp 50.000,- dan Rp 100.000,-\r\n\r\n    Setiap pembelanjaan produk Tonga Bag dan Batik Semar  minimal Rp 100.000,- di Klikindomaret GRATIS Cashback dengan nilai maksimum Rp 100.000,-.\r\n    Periode promosi 1-30 April 2017.\r\n    Konsumen dapat melakukan transaksi berulang selama periode promosi berlangsung.\r\n    Cashback tidak berlaku untuk cara pembayaran Bayar di tempat / COD (Cash on Delivery).\r\n    Konsumen yang melakukan pembatalan order / retur tidak akan mendapatkan Cashback.\r\n    Cashback tidak berlaku untuk kelipatan dan akumulasi transaksi.\r\n    Hanya berlaku untuk konsumen yang telah melakukan pembayaran LUNAS selama periode promo berlangsung.\r\n    Satu konsumen (dengan alamat kirim dan nomor handphone yang sama) hanya berhak mendapatkan Cashback maksimum Rp 100.000,-.\r\n', 'https://miro.medium.com/max/3602/1*zhmW0OXSVB2WsZU81jwX8w.png');
 
 -- --------------------------------------------------------
 
@@ -151,22 +196,22 @@ CREATE TABLE `push` (
 CREATE TABLE `transaction` (
   `id` int(100) NOT NULL,
   `uid` varchar(255) NOT NULL,
-  `food` varchar(255) NOT NULL,
+  `food_id` int(255) NOT NULL,
   `quantity` varchar(255) NOT NULL,
-  `price` varchar(255) NOT NULL,
   `total` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `status` varchar(255) NOT NULL,
+  `datetime` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `transaction`
 --
 
-INSERT INTO `transaction` (`id`, `uid`, `food`, `quantity`, `price`, `total`, `status`) VALUES
-(1, 'WjZ87zduK5Sp842TxHDT6Q70SZY2', 'Korean Raw Beef Tartare', '4', '350000', '1400000', 'Belum Bayar'),
-(2, 'WjZ87zduK5Sp842TxHDT6Q70SZY2', 'Sup Wortel Pedas', '1', '60000', '60000', 'Sudah DiBayar'),
-(3, 'WjZ87zduK5Sp842TxHDT6Q70SZY2', 'Mexican Chopped Salad', '1', '105000', '105000', 'Cancelled'),
-(4, 'test', 'Sate Sayur Sultan', '1', '150000', '150000', 'Belum Bayar');
+INSERT INTO `transaction` (`id`, `uid`, `food_id`, `quantity`, `total`, `status`, `datetime`) VALUES
+(1, 'WjZ87zduK5Sp842TxHDT6Q70SZY2', 1, '4', '1400000', 'Belum Bayar', '2021-06-01 14:24:08'),
+(2, 'WjZ87zduK5Sp842TxHDT6Q70SZY2', 2, '1', '60000', 'Complete', '2021-06-01 14:24:08'),
+(3, 'WjZ87zduK5Sp842TxHDT6Q70SZY2', 3, '1', '105000', 'Complete', '2021-06-01 14:24:08'),
+(5, 'WjZ87zduK5Sp842TxHDT6Q70SZY2', 5, '2', '700000', 'Complete', '2021-06-01 14:24:55');
 
 -- --------------------------------------------------------
 
@@ -230,9 +275,21 @@ ALTER TABLE `food`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `food_rate`
+--
+ALTER TABLE `food_rate`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `keys`
 --
 ALTER TABLE `keys`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `news`
+--
+ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -294,10 +351,22 @@ ALTER TABLE `food`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT untuk tabel `food_rate`
+--
+ALTER TABLE `food_rate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT untuk tabel `keys`
 --
 ALTER TABLE `keys`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`
@@ -327,7 +396,7 @@ ALTER TABLE `push`
 -- AUTO_INCREMENT untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
