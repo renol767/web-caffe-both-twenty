@@ -2,7 +2,7 @@
 
 class Food_model extends CI_Model{
     public function getFood(){
-        return $this->db->query('SELECT food.id, name, description, ingredients, price, ROUND(AVG(food_rate.rates),1) as rate, picturePath FROM food LEFT OUTER JOIN food_rate ON food.id=food_rate.food_id GROUP BY food.id')->result_array();
+        return $this->db->query('SELECT food.id, name, description, ingredients, price, ROUND(AVG(COALESCE(food_rate.rates, 0)),1) as rate, picturePath FROM food LEFT OUTER JOIN food_rate ON food.id=food_rate.food_id GROUP BY food.id')->result_array();
         
     }
     public function createFood($data){

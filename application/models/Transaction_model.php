@@ -15,4 +15,9 @@ class Transaction_model extends CI_Model{
         $this->db->insert('transaction', $data);
         return $this->db->affected_rows();
     }
+
+    public function updateTransaction($data, $id){
+        $this->db->update('transaction', $data, ['id' => $id]);
+        return $this->db->affected_rows();
+    }
 }

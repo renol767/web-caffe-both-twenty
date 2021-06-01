@@ -49,4 +49,29 @@ class Transaction extends REST_Controller{
             ], REST_Controller::HTTP_BAD_REQUEST); 
         }
     }
+
+    public function index_put(){
+
+        $id = $this->put('id');
+        $data = [
+            'uid' => $this->put('uid'),
+            'food_id' => $this->put('food_id'),
+            'quantity' => $this->put('quantity'),
+            'total' => $this->put('total'),
+            'status' => $this->put('status')
+        ];
+        
+        if ($this->transaction->updateTransaction($data, $id) > 0){
+            $this->response([
+                'status' => true,
+                'message' => 'Transaction has been updated'
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => true,
+                'message' => 'Failed update data'
+            ], REST_Controller::HTTP_BAD_REQUEST);
+        }
+
+    }
 }
