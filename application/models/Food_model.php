@@ -1,12 +1,9 @@
 <?php 
 
 class Food_model extends CI_Model{
-    public function getFood($id = null){
-        if ($id == null){
-            return $this->db->get('food')->result_array();
-        }else{
-            return $this->db->get_where('food', ['id' => $id])->result_array();
-        }
+    public function getFood(){
+        return $this->db->query('SELECT food.id, name, description, ingredients, price, ROUND(AVG(food_rate.rates),1) as rate, picturePath FROM food LEFT OUTER JOIN food_rate ON food.id=food_rate.food_id GROUP BY food.id')->result_array();
+        
     }
     public function createFood($data){
         $this->db->insert('food', $data);

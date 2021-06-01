@@ -13,13 +13,9 @@ class Food extends REST_Controller{
     }
 
     public function index_get(){
-        $id = $this->get('id');
 
-        if($id === null){
-            $food = $this->food->getFood();
-        }else{
-            $food = $this->food->getFood($id);
-        }
+        $food = $this->food->getFood();
+        
 
         if ($food){
             $this->response($food, REST_Controller::HTTP_OK);
