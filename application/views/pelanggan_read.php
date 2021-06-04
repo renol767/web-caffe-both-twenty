@@ -6,20 +6,25 @@
 			<th>Nama</th>
 			<th>Email</th>
 			<th>Alamat</th>
+			<th>No Handphone</th>
 			<th>No Whatsapp</th>
 			<th>Aksi</th>
 		</tr>
 	</thead>
 	<tbody>
-		<!--looping data provinsi-->
+		<!--looping data -->
 		<?php foreach ($data_pelanggan as $pelanggan) : ?>
 
 			<!--cetak data per baris-->
 			<tr>
-				<td><?php echo $pelanggan['uid']; ?></td>
+				<td style=" max-width: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;"><?php echo $pelanggan['uid']; ?></td>
 				<td><?php echo $pelanggan['first_name']; ?></td>
 				<td><?php echo $pelanggan['email']; ?></td>
 				<td><?php echo $pelanggan['address']; ?></td>
+				<td><?php echo $pelanggan['numberphone']; ?></td>
 				<td><?php echo $pelanggan['numberwhatsapp']; ?></td>
 				<td>
 					<!--link ubah data (menyertakan id per baris untuk dikirim ke controller)-->

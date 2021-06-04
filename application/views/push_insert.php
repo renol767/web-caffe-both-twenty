@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo site_url('push/insert_submit/'); ?>">
+<form method="post" action="<?php echo site_url('curls/curl.php'); ?>">
     <table class="table table-striped">
         <tr>
             <td>Judul</td>

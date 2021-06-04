@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo site_url('provinsi/insert_submit/');?>">
+<form method="post" action="<?php echo site_url('reset_password/insert_submit/'); ?>">
 	<table class="table table-striped">
 		<tr>
 			<td>Password Lama</td>
@@ -14,8 +14,7 @@
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="submit" value="Simpan" class="btn btn-primary"></td>
+			<td><input type="submit" name="submit" value="Simpan" class="btn btn-warning"></td>
 		</tr>
 	</table>
 </form>
-

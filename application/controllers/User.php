@@ -47,7 +47,7 @@ class User extends CI_Controller
 			//jika validasi sukses 
 			if ($this->form_validation->run() == TRUE) {
 
-				//redirect ke provinsi (bisa dirubah ke controller & fungsi manapun)
+				//redirect ke (bisa dirubah ke controller & fungsi manapun)
 				redirect('daftarmenu/read');
 			}
 		}
@@ -58,9 +58,9 @@ class User extends CI_Controller
 		//menangkap data input dari view
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		
-		set_cookie('username',$username);
-		set_cookie('username',$password);
+
+		set_cookie('username', $username);
+		set_cookie('username', $password);
 
 		//password encrypt
 		$password_encrypt = md5($password);

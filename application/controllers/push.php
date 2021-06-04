@@ -33,7 +33,7 @@ class push extends CI_Controller
         $output = array(
             //memanggil view
             'theme_page' => 'push_read',
-            'judul' => 'Data Push',
+            'judul' => 'PUSH NOTIFICATION',
 
             //data push dikirim ke view
             'data_push' => $data_push

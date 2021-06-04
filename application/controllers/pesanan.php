@@ -43,37 +43,7 @@ class pesanan extends CI_Controller
         $this->load->view('theme/index', $output);
     }
 
-    public function insert()
-    {
-        //mengirim data ke view
-        $output = array(
-            //memanggil view
-            'theme_page' => 'pesanan_insert',
-            'judul' => 'Tambah Pesanan',
-        );
 
-        //memanggil file view
-        $this->load->view('theme/index', $output);
-    }
-
-    public function insert_submit()
-    {
-        //menangkap data input dari view
-        $nama = $this->input->post('nama');
-
-        //mengirim data ke model
-        $input = array(
-            //format : nama field/kolom table => data input dari view
-            'nama' => $nama,
-        );
-
-        //memanggil function insert pada pesanan model
-        //function insert berfungsi menyimpan/create data ke table pesanan di database
-        $data_pesanan = $this->pesanan_model->insert($input);
-
-        //mengembalikan halaman ke function read
-        redirect('pesanan/read');
-    }
 
     public function update()
     {
@@ -102,12 +72,20 @@ class pesanan extends CI_Controller
         $id = $this->uri->segment(3);
 
         //menangkap data input dari view
-        $nama = $this->input->post('nama');
+        $nama_menu = $this->input->post('food');
+        $banyak = $this->input->post('quantity');
+        $harga = $this->input->post('price');
+        $total = $this->input->post('total');
+        $status = 'Sudah DiBayar';
 
         //mengirim data ke model
         $input = array(
             //format : nama field/kolom table => data input dari view
-            'nama' => $nama,
+            'food' => $nama_menu,
+            'quantity' => $banyak,
+            'price' => $harga,
+            'total' => $total,
+            'status' => $status,
         );
 
         //memanggil function insert pada pesanan model

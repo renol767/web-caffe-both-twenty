@@ -10,7 +10,7 @@ class daftarmenu_model extends CI_Model
 
         //sql read
         $this->db->select('*');
-        $this->db->from('daftarmenu');
+        $this->db->from('food');
         $query = $this->db->get();
 
         //$query->result_array = mengirim data ke controller dalam bentuk semua data
@@ -23,7 +23,7 @@ class daftarmenu_model extends CI_Model
 
         //sql read
         $this->db->select('*');
-        $this->db->from('daftarmenu');
+        $this->db->from('food');
 
         //$id = id data yang dikirim dari controller (sebagai filter data yang dipilih)
         //filter data sesuai id yang dikirim dari controller
@@ -35,14 +35,14 @@ class daftarmenu_model extends CI_Model
         return $query->row_array();
     }
 
-    //function insert berfungsi menyimpan/create data ke table provinsi di database
+    //function insert berfungsi menyimpan/create data ke table  di database
     public function insert($input)
     {
         //$input = data yang dikirim dari controller
-        return $this->db->insert('daftarmenu', $input);
+        return $this->db->insert('food', $input);
     }
 
-    //function update berfungsi merubah data ke table provinsi di database
+    //function update berfungsi merubah data ke table  di database
     public function update($input, $id)
     {
         //$id = id data yang dikirim dari controller (sebagai filter data yang diubah)
@@ -50,7 +50,7 @@ class daftarmenu_model extends CI_Model
         $this->db->where('id', $id);
 
         //$input = data yang dikirim dari controller
-        return $this->db->update('daftarmenu', $input);
+        return $this->db->update('food', $input);
     }
 
     //function delete berfungsi menghapus data dari table daftarmenu di database
@@ -58,6 +58,6 @@ class daftarmenu_model extends CI_Model
     {
         //$id = id data yang dikirim dari controller (sebagai filter data yang dihapus)
         $this->db->where($where);
-        $this->db->delete('daftarmenu');
+        $this->db->delete('food');
     }
 }

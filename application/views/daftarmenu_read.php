@@ -4,25 +4,29 @@
 
 <table class="table table-striped">
     <thead class="thead-dark">
-        <tr>
+        <tr align="center">
             <th>ID</th>
-            <th>Nama Menu</th>
-            <th>Deskripsi</th>
-            <th>Harga</th>
+            <th width="150px">Nama Menu</th>
+            <th width="400px">Deskripsi</th>
+            <th width="80px">Harga</th>
+            <th width="200px">Gambar</th>
             <th>Aksi</th>
 
         </tr>
     </thead>
     <tbody>
-        <!--looping data provinsi-->
-        <?php foreach ($data_daftarmenu as $daftarmenu) : ?>
+        
+        <!--looping data -->
+        <?php $i = 1; foreach ($data_daftarmenu as $daftarmenu) : ?>
 
             <!--cetak data per baris-->
             <tr>
-                <td><?php echo $daftarmenu['id']; ?></td>
-                <td><?php echo $daftarmenu['nama_menu']; ?></td>
-                <td><?php echo $daftarmenu['deskripsi']; ?></td>
-                <td><?php echo $daftarmenu['harga']; ?></td>
+                <td><?php echo $i++?></td>
+                <td><?php echo $daftarmenu['name']; ?></td>
+                <td><?php echo $daftarmenu['description']; ?></td>
+                <td><?php echo $daftarmenu['price']; ?></td>
+
+                <td><img src="<?php echo base_url() . '/gambar/' . $daftarmenu['picturePath']; ?>" width="200"></td>
 
                 <td>
                     <!--link ubah data (menyertakan id per baris untuk dikirim ke controller)-->

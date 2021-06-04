@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <!--looping data provinsi-->
+        <!--looping data -->
         <?php foreach ($data_push as $push) : ?>
 
             <!--cetak data per baris-->
