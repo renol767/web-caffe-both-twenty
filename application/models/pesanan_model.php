@@ -28,7 +28,7 @@ class pesanan_model extends CI_Model
 
         //$id = id data yang dikirim dari controller (sebagai filter data yang dipilih)
         //filter data sesuai id yang dikirim dari controller
-        $this->db->where('id', $id);
+        $this->db->where('tr_id', $id);
 
         $query = $this->db->get();
 
@@ -39,9 +39,9 @@ class pesanan_model extends CI_Model
     //function update berfungsi merubah data ke table di database
     public function update($input, $id)
     {
-        //$id = id data yang dikirim dari controller (sebagai filter data yang diubah)
+        //$id = uid data yang dikirim dari controller (sebagai filter data yang diubah)
         //filter data sesuai id yang dikirim dari controller
-        $this->db->where('id', $id);
+        $this->db->where('tr_id', $id);
 
         //$input = data yang dikirim dari controller
         return $this->db->update('transaction', $input);
@@ -51,7 +51,7 @@ class pesanan_model extends CI_Model
     public function delete($id)
     {
         //$id = id data yang dikirim dari controller (sebagai filter data yang dihapus)
-        $this->db->where('id', $id);
+        $this->db->where('tr_id', $id);
         return $this->db->delete('transaction');
     }
 }

@@ -21,6 +21,14 @@
 
   <!-- Nav Item - Charts -->
   <li class="nav-item active">
+    <a class="nav-link" href="<?php echo site_url('news/read'); ?>">
+      <i class="fas fa-fw fa-home text-warning"></i>
+      <span class="text-warning">News</span>
+    </a>
+  </li>
+
+  <!-- Nav Item - Charts -->
+  <li class="nav-item active">
     <a class="nav-link" href="<?php echo site_url('pelanggan/read'); ?>">
       <i class="fas fa-fw fa-users text-warning"></i>
       <span class="text-warning">Data Pelanggan</span></a>
@@ -35,17 +43,12 @@
 
   <!-- Nav Item - Charts -->
   <li class="nav-item active">
-    <a class="nav-link" href="<?php echo site_url('push/read'); ?>">
+    <a class="nav-link" href="<?php echo site_url('push/insert'); ?>">
       <i class="fas fa-fw fa-users text-warning"></i>
       <span class="text-warning">Push Notification</span></a>
   </li>
 
-  <!-- Nav Item - Charts -->
-  <li class="nav-item active">
-    <a class="nav-link" href="<?php echo site_url('broadcast/read'); ?>">
-      <i class="fas fa-fw fa-users text-warning"></i>
-      <span class="text-warning">Brodcast Promotion</span></a>
-  </li>
+
 
 
 

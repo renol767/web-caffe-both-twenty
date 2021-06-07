@@ -9,7 +9,7 @@ class News extends REST_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('News_model', 'news');
+        $this->load->model('News_modelAPI', 'news');
     }
 
     public function index_get(){

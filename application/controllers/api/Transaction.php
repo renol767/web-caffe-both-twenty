@@ -52,7 +52,7 @@ class Transaction extends REST_Controller{
 
     public function index_put(){
 
-        $id = $this->put('id');
+        $id = $this->put('tr_id');
         $data = [
             'uid' => $this->put('uid'),
             'food_id' => $this->put('food_id'),

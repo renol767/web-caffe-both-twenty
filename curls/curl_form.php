@@ -12,6 +12,7 @@
 		<tr>
 			<td>&nbsp;</td>
 			<td><input type="submit" name="submit" value="Simpan" class="btn btn-primary"></td>
+
 		</tr>
 	</table>
 </form>

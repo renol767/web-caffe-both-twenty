@@ -53,6 +53,7 @@ $route['default_controller'] = 'pelanggan';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
 /*
 | -------------------------------------------------------------------------
 | Sample REST API Routes
